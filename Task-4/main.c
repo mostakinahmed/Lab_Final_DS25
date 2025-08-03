@@ -3,6 +3,7 @@ int isEmpty();
 int isFull();
 void enqueue(int data);
 void display();
+void peek();
 
 #define Max 5
 int front = -1, rear = -1, size = Max;
@@ -67,6 +68,18 @@ void dequeue()
     }
 }
 
+void peek()
+{
+    if (isEmpty())
+    {
+        printf("Queue is empty.");
+    }
+    else
+    {
+        printf("Peek element is %d.", data[front]);
+    }
+}
+
 void display()
 {
 
@@ -101,6 +114,7 @@ int main()
     enqueue(70);
     dequeue();
     enqueue(550);
+    peek();
     printf("\n");
     display();
 }
