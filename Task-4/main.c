@@ -37,7 +37,7 @@ void enqueue(int value)
 {
     if (isFull())
     {
-        printf("Queue is Full.");
+        printf("%d is not inserted. Queue is Full.", value);
         return;
     }
     else
@@ -53,6 +53,20 @@ void enqueue(int value)
     }
 }
 
+void dequeue()
+{
+    if (isEmpty())
+    {
+        printf("Queue is Empty.");
+        return;
+    }
+    else
+    {
+        printf("%d is deleted.\n", data[front]);
+        front = (front + 1) % size;
+    }
+}
+
 void display()
 {
 
@@ -65,8 +79,9 @@ void display()
         int i = front;
         while (1)
         {
-            printf("%d ", data[i]);
-            if (i == rear){
+            printf("%d - %d \n", i, data[i]);
+            if (i == rear)
+            {
                 break;
             }
             i = (i + 1) % size;
@@ -79,5 +94,13 @@ int main()
 {
     enqueue(10);
     enqueue(20);
+    enqueue(30);
+    enqueue(40);
+    enqueue(50);
+    dequeue();
+    enqueue(70);
+    dequeue();
+    enqueue(550);
+    printf("\n");
     display();
 }
